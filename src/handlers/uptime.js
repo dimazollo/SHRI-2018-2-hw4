@@ -1,3 +1,5 @@
+const startServerDate = Date.now();
+
 function formatUptime(time) {
   const totalSeconds = Math.floor(time / 1000);
 
@@ -12,4 +14,9 @@ function formatUptime(time) {
   return addLeadingZero(hours) + ':' + addLeadingZero(minutes) + ':' + addLeadingZero(seconds);
 }
 
-module.exports = formatUptime;
+function uptimeHandler(req, res) {
+  const uptimeInMs = Date.now() - startServerDate;
+  res.send(formatUptime(uptimeInMs));
+}
+
+module.exports = uptimeHandler;
