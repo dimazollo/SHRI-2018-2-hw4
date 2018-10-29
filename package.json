@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./dist/server.js",
-    "build": "rollup --config"
+    "build": "rollup --config",
+    "server": "node ./dist/server.js",
+    "start": "npm run build && npm run server"
   },
   "dependencies": {
     "cors": "^2.8.4",
